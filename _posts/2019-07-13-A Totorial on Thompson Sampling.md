@@ -25,7 +25,7 @@ tags:                               #标签
 
 ## A Tutorial on Thompson Sampling
 
-Core Function:
+Core Functions:
 
 ```{python}
 def reproduce_figure(figure_options, run_frac, data_path, plot_path):
@@ -358,9 +358,9 @@ def plot_action_proportion(df_agent):
   return p
 ```
 
-![finite_simple_greedy_action](F:/ts_tutorial-master/ts_tutorial-master/src/tmp/finite_simple_greedy_action.png)
+![finite_simple_greedy_action](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Thompson%20Sampling/finite_simple_greedy_action.png)
 
-![finite_simple_ts_action](F:/ts_tutorial-master/ts_tutorial-master/src/tmp/finite_simple_ts_action.png)
+![finite_simple_ts_action](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Thompson%20Sampling//finite_simple_ts_action.png)
 
 
 Figure 3.2a (In python program is 4a)
@@ -420,9 +420,9 @@ def get_config():
   return config
 ```
 
-![finite_simple_simple](F:/ts_tutorial-master/ts_tutorial-master/src/tmp/finite_simple_simple.png)
+![finite_simple_simple](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Thompson%20Sampling/finite_simple_simple.png)
 
-![finite_simple_rand_simple](F:/ts_tutorial-master/ts_tutorial-master/src/tmp/finite_simple_rand_simple.png)
+![finite_simple_rand_simple](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Thompson%20Sampling/finite_simple_rand_simple.png)
 
 ### Chapter 4: General Thompson Sampling
 
@@ -614,7 +614,7 @@ class FiniteBernoulliBanditBootstrap(FiniteBernoulliBanditTS):
 ```
 
 
-![finite_simple_sanity_simple](F:/ts_tutorial-master/ts_tutorial-master/src/tmp/finite_simple_sanity_simple.png)
+![finite_simple_sanity_simple](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Thompson%20Sampling/finite_simple_sanity_simple.png)
 
 **Incremental Implementation**
 
@@ -632,7 +632,7 @@ Since $\nabla^2g_t(\overline{\theta}_{t-1})$ has rank one, therefore $H_t^{-1}=(
 
 **Ensemble sampling**
 
-Totally cannot understand 555
+
 
 
 
@@ -722,11 +722,11 @@ def misspecified_plot(experiment_name='finite_misspecified',
   return plot_dict
 ```
 
-![misspecified_action](F:/ts_tutorial-master/ts_tutorial-master/src/tmp/misspecified_action.png)
+![misspecified_action](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Thompson%20Sampling/misspecified_action.png)
 
 
 
-![misspecified_regret](F:/ts_tutorial-master/ts_tutorial-master/src/tmp/misspecified_regret.png)
+![misspecified_regret](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Thompson%20Sampling/misspecified_regret.png)
 
 #####Extensions:
 
@@ -762,7 +762,7 @@ $$
 p(u)\leftarrow \frac{\overline{p}^\gamma(u)p^{1-\gamma}(u)q_u(y_t|x_t)}{\sum_v\overline{p}^\gamma(v)p^{1-\gamma(v)}q_v(y_t|x_t)}
 $$
 
-![finite_drift_simple](F:/ts_tutorial-master/ts_tutorial-master/src/tmp/finite_drift_simple.png)
+![finite_drift_simple](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Thompson%20Sampling/finite_drift_simple.png)
 
 #####Concurrence
 
