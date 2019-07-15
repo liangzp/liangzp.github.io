@@ -831,7 +831,7 @@ lim_{T\rightarrow\infty} \frac{\mathbb{E}[Regret(T)|\theta]}{log(T)}=\sum_{k\neq
 $$
 
 
-Assuming that there is a unique optimal action k*. This is the lower bound of all possible algorithm. The regret of TS exhibits this scaling and a series of papers provided proofs that formalize this finding. The bound essentially focuses on a regime in which the agent is highly confident of which action is best but continues to occasionally explore in order to become even more confident. If we specialize to the case in which rewards, conditioned on $\theta$, are Gaussian with unit variance, for which $d_{KL}(\theta||\theta')=(\theta-\theta')^2/2$, then:
+Assuming that there is a unique optimal action k*. This is the lower bound of all possible algorithm. The regret of TS exhibits this scaling and a series of papers provided proofs that formalize this finding. The bound essentially focuses on a regime in which the agent is highly confident of which action is best but continues to occasionally explore in order to become even more confident. If we specialize to the case in which rewards, conditioned on $\theta$, are Gaussian with unit variance, for which $d_{KL}(\theta  |  |  \theta')=(\theta-\theta')^2/2$, then:
 
 
 $$
