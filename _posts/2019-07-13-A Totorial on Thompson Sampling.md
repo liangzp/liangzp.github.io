@@ -231,7 +231,7 @@ When the differentiation of the expectations of different bandits are small, the
 
 
 
-```{python}
+```python
 """
 Step 1: Get Config by Name: finite_simple
 Step 2: Experiment: Run Batch runner 
@@ -364,7 +364,7 @@ def plot_action_proportion(df_agent):
 
 
 Figure 3.2a (In python program is 4a)
-```{python}
+```python
 def simple_algorithm_plot(experiment_name, data_path=_DEFAULT_DATA_PATH):
   """Simple plot of average instantaneous regret by agent, per timestep.
 
@@ -391,7 +391,7 @@ def simple_algorithm_plot(experiment_name, data_path=_DEFAULT_DATA_PATH):
 ```
 
 Figure 3.2b (In python program is 4b)
-```{python}
+```python
 def get_config():
   """Generates the config for the experiment."""
   name = 'finite_simple_rand'
@@ -453,7 +453,11 @@ $$
 \end{aligned}
 \right.
 $$
+
+
 and 
+
+
 $$
 C_{e,e'}=\left\{
 \begin{aligned}
@@ -469,7 +473,7 @@ $\theta_e$ is independent and gamma-distributed and observations be generated ac
 $$
 y_t|\theta_e~\left\{
 \begin{aligned}
-1,& & with probability \ \frac{1}{1+exp(\sum_e\in x_t \theta_e - M)} \\
+1,& & with\ \  probability \ \frac{1}{1+exp(\sum_e\in x_t \theta_e - M)} \\
 0,& & otherwise
 \end{aligned}
 \right.
@@ -486,6 +490,8 @@ $$
 where s is the success count.
 
 Taking logs gives:
+
+
 $$
 \begin{aligned}
 L(\theta)&=const+sln(\theta)+(n-s)ln(1-\theta)\\
@@ -499,7 +505,7 @@ $$
 
 2. Laplace Approximation (approximate probability density near the global maximum by second-order Taylor approximation and Gaussian distribution)-- backtracking line search, drawback: not appropriate for posterior distribution is not sufficiently close to Gaussian
 
-```{python}
+```python
 class FiniteBernoulliBanditLaplace(FiniteBernoulliBanditTS):
   """Laplace Thompson sampling on finite armed bandit."""
 
@@ -601,7 +607,7 @@ $$
       $$
       One advantage of the bootstrap is that it is nonparametric, and may work reasonably regardless of the functional form of the posterior distribution, whereas the Laplace approximation relies on a Gaussian approximation and Langevin Monte Carlo relies on log-concavity and other regularity assumptions.
 
-```{python}
+```python
 class FiniteBernoulliBanditBootstrap(FiniteBernoulliBanditTS):
   """Bootstrapped Thompson sampling on finite armed bandit."""
 
@@ -643,7 +649,7 @@ Since $\nabla^2g_t(\overline{\theta}_{t-1})$ has rank one, therefore $H_t^{-1}=(
 The choice of prior can be important.
 
 
-```{python}
+```python
 class DriftingFiniteBernoulliBanditTS(FiniteBernoulliBanditTS):
   """Thompson sampling on finite armed bandit."""
 
@@ -722,21 +728,28 @@ def misspecified_plot(experiment_name='finite_misspecified',
   return plot_dict
 ```
 
+
+
 ![misspecified_action](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Thompson%20Sampling/misspecified_action.png)
+
+
 
 
 
 ![misspecified_regret](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Thompson%20Sampling/misspecified_regret.png)
 
-#####Extensions:
+
+
+
+
+##### Extensions:
 
 1. Time-varying constraints
-
 2. Contextual online decision problems: in such problems, the response $y_t$ to action $x_t$ also depends on an independent random variable $z_t$ that the agent observes prior to making her decision. The conditional distribution of $y_t$ takes the form $p_\theta(\cdot|x_t,z_t)$ instead of $p_\theta(\cdot|x_t)$. For the shortest path problem, this can be interpreted as allowing the agent to dictate both the weather report and the path to traverse but constraining the agent to provide a weather report identical to the one observed through the news channel.
-
 3. Baseline
 
-#####Simple approach to addressing nonstationary systems problems (with time-varying parameters $\theta_1,\theta_2,\dots$):
+
+##### Simple approach to addressing nonstationary systems problems (with time-varying parameters $\theta_1,\theta_2,\dots$):
 
 1. Ignoring historical observations made beyond some number $\tau$ of time periods in the past. The agent never ceases to explore, since the degree to which the posterior distribution can concentrate is limited by the number of observations taken into account.
 
@@ -764,7 +777,7 @@ $$
 
 ![finite_drift_simple](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Thompson%20Sampling/finite_drift_simple.png)
 
-#####Concurrence
+##### Concurrence
 
 Involving synchronous action selection and posterior updating
 
@@ -788,7 +801,7 @@ The results demonstrate that TS far outperforms UCB1. In particular, h(x, $U_t$)
 
 ##### Active Learning with Neural Networks
 
-先放一下，查一下ensemble model
+to be continue
 
 
 
@@ -811,30 +824,47 @@ Posterior sampling for reinforcement learning (PSRL) fits in the broader family 
 ###### Regret Analysis fr Classical Bandit Problems
 
 Regret analysis for classical bandit problems reveals that: 
+
+
 $$
 lim_{T\rightarrow\infty} \frac{\mathbb{E}[Regret(T)|\theta]}{log(T)}=\sum_{k\neq k*}\frac{\theta_{k*}-\theta}{d_{KL}(\theta_{k*}||\theta_k)}
 $$
+
+
 Assuming that there is a unique optimal action k*. This is the lower bound of all possible algorithm. The regret of TS exhibits this scaling and a series of papers provided proofs that formalize this finding. The bound essentially focuses on a regime in which the agent is highly confident of which action is best but continues to occasionally explore in order to become even more confident. If we specialize to the case in which rewards, conditioned on $\theta$, are Gaussian with unit variance, for which $d_{KL}(\theta||\theta')=(\theta-\theta')^2/2$, then:
+
+
 $$
 \mathbb{E}[Regret(T)|\theta]=\sum_{k\neq k*}\frac{2}{\theta_{k*}-\theta_k}log(T)
 $$
+
+
 The final expression is dominated by **near-optimal** actions reflects that in the relevant asymptotic regime other actions can be essentially ruled out using far fewer samples.For the Bernoulli bandit problem, Agrawal and Goyal established that when TS is initialized with a uniform prior: (8.3)
+
+
 $$
 max_{\theta'}\mathbb{E}[Regret(T)|\theta=\theta']=O(\sqrt{KTlog(T)})              
 $$
+
+
 This regret bounds hold uniformly over all problem instances, ensuring that there are no instances of bandit problems with binary rewards that will cause the regret of TS to explode. Also this bound is nearly order-optimal. 
 
 ###### Regret Analysis for Complex Online Decision Problems
 
 Let
+
 $$
 \mu(x,\theta)=\mathbb{E}[r(g(x,\theta,w_t))|\theta]
 $$
+
 The algorithm Bayesian regret:
+
 $$
 \mathbb{E}[Regret(T)]=\mathbb{E}_{\theta,w_t}[\sum_{t=1}^T(\mu(x*,\theta)-\mu(x,\theta))]
 $$
+
 No single algorithm can minimize conditional expected regret $\mathbb{E}[Regret(T)|\theta=\theta']$ for every problem instance $\theta'$. However, minimizing integrated regret $\mathbb{E}[Regret(T)]=\mathbb{E}[\mathbb{E}[Regret(T)|\theta]]$ can direct the algorithm priortize strong performance in more likely scenarios. With any choice of $U_t$, regret over the period decomposes according to 
+
 $$
 \begin{aligned}
 \mu(x^*,\theta)-\mu(\overline{x}_t,\theta)&=\mu(x^*,\theta)-U_t(\overline{x}_t)+-U_t(\overline{x}_t)-\mu(\overline{x}_t,\theta)\\
@@ -842,19 +872,24 @@ $$
 & \quad \quad \quad pessimism \quad \quad \quad \quad \quad width
 \end{aligned}
 $$
+
 Regret bounds for UCB algorithms are obtained by characterizing the rate at which this slack diminishes as actions are applied.
 
 For TS, similar results can be derived
+
 $$
 \begin{aligned}\mu(x^*,\theta)-\mu(\overline{x}_t,\theta)&=\mu(x^*,\theta)-U_t(\overline{x}_t)+-U_t(\overline{x}_t)-\mu(\overline{x}_t,\theta)\\
 &=\underbrace{\mu(x^*,\theta)-U_t(x^*)}+\underbrace{U_t(\overline{x}_t)-\mu(\overline{x}_t,\theta)}\\& \quad \quad \quad pessimism \quad \quad \quad \quad \quad width\end{aligned}
 $$
+
 The second equation puzzles me a lot and remains to be solve... However, this expression reveal an important difference between UCB algorithm and TS: UCB regret bounds depend on the specific choice of $U_t$ by the algorithm in question while with TS $U_t$ plays no role in the algorithm and appears only as a figment of regret analysis. This suggests that, while the regret of a UCB algorithm depends critically on the specific choice of upper-confidence bound, TS depends only on the best possible choice. This is the crucial advantage when there are complicated dependencies among actions, as designing and computing with appropriate upper-confidence bounds present significant challenges.
 
 Under TS:(8.5)
+
 $$
 \mathbb{E}[Regret(T)]=O(d\sqrt{T}log(T))
 $$
+
 An important feature of this bound is that it depends on the complexity of the parameterized model through the dimension d and not on the number of actions. Indeed, when there are a very large, or even infinite number of actions, bounds like (8.3) are vacuous whereas (8.5) may still provide a meaning full guarantee.
 
 ###### Why Randomize Actions
