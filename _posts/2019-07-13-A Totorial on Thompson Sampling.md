@@ -745,7 +745,7 @@ def misspecified_plot(experiment_name='finite_misspecified',
 ##### Extensions:
 
 1. Time-varying constraints
-2. Contextual online decision problems: in such problems, the response $y_t$ to action $x_t$ also depends on an independent random variable $z_t$ that the agent observes prior to making her decision. The conditional distribution of $y_t$ takes the form $p_\theta(\cdot|x_t,z_t)$ instead of $p_\theta(\cdot|x_t)$. For the shortest path problem, this can be interpreted as allowing the agent to dictate both the weather report and the path to traverse but constraining the agent to provide a weather report identical to the one observed through the news channel.
+2. Contextual online decision problems: in such problems, the response $y_t$ to action $x_t$ also depends on an independent random variable $z_t$ that the agent observes prior to making her decision. The conditional distribution of $y_t$ takes the form $p_\theta(\cdot\| x_t,z_t)$ instead of $p_\theta(\cdot\| x_t)$. For the shortest path problem, this can be interpreted as allowing the agent to dictate both the weather report and the path to traverse but constraining the agent to provide a weather report identical to the one observed through the news channel.
 3. Baseline
 
 
@@ -831,7 +831,7 @@ lim_{T\rightarrow\infty} \frac{\mathbb{E}[Regret(T)|\theta]}{log(T)}=\sum_{k\neq
 $$
 
 
-Assuming that there is a unique optimal action k*. This is the lower bound of all possible algorithm. The regret of TS exhibits this scaling and a series of papers provided proofs that formalize this finding. The bound essentially focuses on a regime in which the agent is highly confident of which action is best but continues to occasionally explore in order to become even more confident. If we specialize to the case in which rewards, conditioned on $\theta$, are Gaussian with unit variance, for which $d_{KL}(\theta \| \theta')=(\theta-\theta')^2/2$, then:
+Assuming that there is a unique optimal action k*. This is the lower bound of all possible algorithm. The regret of TS exhibits this scaling and a series of papers provided proofs that formalize this finding. The bound essentially focuses on a regime in which the agent is highly confident of which action is best but continues to occasionally explore in order to become even more confident. If we specialize to the case in which rewards, conditioned on $\theta$, are Gaussian with unit variance, for which $d_{KL}(\theta \| \| \theta')=(\theta-\theta')^2/2$, then:
 
 
 $$
@@ -843,7 +843,7 @@ The final expression is dominated by **near-optimal** actions reflects that in t
 
 
 $$
-max_{\theta'}\mathbb{E}[Regret(T)|\theta=\theta']=O(\sqrt{KTlog(T)})              
+max_{\theta'}\mathbb{E}[Regret(T)\| \| \theta=\theta']=O(\sqrt{KTlog(T)})
 $$
 
 
@@ -863,7 +863,7 @@ $$
 \mathbb{E}[Regret(T)]=\mathbb{E}_{\theta,w_t}[\sum_{t=1}^T(\mu(x*,\theta)-\mu(x,\theta))]
 $$
 
-No single algorithm can minimize conditional expected regret $\mathbb{E}[Regret(T)|\theta=\theta']$ for every problem instance $\theta'$. However, minimizing integrated regret $\mathbb{E}[Regret(T)]=\mathbb{E}[\mathbb{E}[Regret(T)|\theta]]$ can direct the algorithm priortize strong performance in more likely scenarios. With any choice of $U_t$, regret over the period decomposes according to 
+No single algorithm can minimize conditional expected regret $\mathbb{E}[Regret(T)|\theta=\theta']$ for every problem instance $\theta'$. However, minimizing integrated regret $\mathbb{E}[Regret(T)]=\mathbb{E}[\mathbb{E}[Regret(T)\| \| \theta]]$ can direct the algorithm priortize strong performance in more likely scenarios. With any choice of $U_t$, regret over the period decomposes according to 
 
 $$
 \begin{aligned}
