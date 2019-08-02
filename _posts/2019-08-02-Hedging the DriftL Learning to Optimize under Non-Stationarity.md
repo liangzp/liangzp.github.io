@@ -26,7 +26,7 @@ tags:                               #标签
 
 This paper mainly concerns about Multi-armed Bandits problem when environment evolves according to the time, so called non-stationary environment. Multi-armed Bandit (MAB) problems are mainly studied in two streams, the stochastic and adversarial environments. In th former, the model uncertainty is static and the partial feedback is corrupted by a mean zeron random noise. The decision maker aims at estimating the latent static environment using historical data and converging to a static optimal decision. In the latter, the model is dynamically changed by an adversary and the DM strives to hedge against the changes, the compete favorably in comparison to certain benchmark policies. This classification can be understand in the way whether the randomness is knowable or unknowable.
 
-Starting from (Besbes et al. 2014, 2015), a stream of research works focuses on MAB problems in a drifting environment, which is a hybrid of a stochastic and an adversarial environment. Simplily applying conventional algorithms is not suitable in such a setting. Strategies for the stochastic environments can quickly deteriorate under non-stationarity as historical data might "expire" while the permission of an confronting adversary in the adversarial settings counld be too pessimistic. Thanks to the framework of (Besbes et al. 2014, 2015), considering driting environment by introducing variance budge $B_T(=\Theta(T^{\rho}$ for some $\rho\in(0,1)$$))$, which is the the total change in a T step problem, provides an benchmark for estimating the performance of strategies in drifting environment. 
+Starting from (Besbes et al. 2014, 2015), a stream of research works focuses on MAB problems in a drifting environment, which is a hybrid of a stochastic and an adversarial environment. Simplily applying conventional algorithms is not suitable in such a setting. Strategies for the stochastic environments can quickly deteriorate under non-stationarity as historical data might "expire" while the permission of an confronting adversary in the adversarial settings counld be too pessimistic. Thanks to the framework of (Besbes et al. 2014, 2015), considering driting environment by introducing variance budge $B_T(=\Theta(T^{\rho}$ for some $\rho\in(0,1)$$))​$, which is the the total change in a T step problem, provides an benchmark for estimating the performance of strategies in drifting environment. 
 
 Apart from drifting environment, numerous research works consider the switching environment where the time horizon is partitioned into at most S intervals, and it switches from one stochastic environment to another across different intervals.
 
@@ -192,28 +192,24 @@ $$
 
 
 
-
-
-EXP3.S:y=1.0589198165496876x+-2.031075494645885
-SW_UCB:y=0.9344154836606042x+-2.6797493935069974
-
-
-
-BOB:y=0.9618974510609959x+-1.999059722100245
-SW_UCB:y=1.56266615722359x+-3.21379878505043
+![K-bandit with variance budget known](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Heding%20the%20Drift/Heding_the_Drift.png)
+EXP3.S:y=1.0589198165496876x-2.031075494645885
+SW_UCB:y=0.9344154836606042x-2.6797493935069974
 
 
 
+![K-bandit with variance budget unknown](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Heding%20the%20Drift/Heding_the_Drift_unknown_cumulative.png)
+
+BOB:y=0.9618974510609959x-1.999059722100245
+SW_UCB:y=1.56266615722359x-3.21379878505043
 
 
+![piecewise-bandit with variance budget known](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Heding%20the%20Drift/Heding_the_Drift_piecewise_cumulative.png)
+EXP3.S:y=0.9529570403659773x-1.406305036534438
+SW_UCB:y=0.7955559909479708x-1.034963364818518
 
+![piecewise-bandit with variance budget unknown](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Heding%20the%20Drift/Heding_the_Drift_piecewise_unknown_cumulative.png)
+BOB:y=1.061702735961192x-1.8792975489796089
+SW_UCB:y=1.9093382314556537x-6.44241440616039
 
-EXP3.S:y=0.9529570403659773x+-1.406305036534438
-SW_UCB:y=0.7955559909479708x+-1.034963364818518
-
-
-
-
-
-BOB:y=1.061702735961192x+-1.8792975489796089
-SW_UCB:y=1.9093382314556537x+-6.44241440616039
+![Estimated](https://raw.githubusercontent.com/liangzp/online-learning-implementation/master/Heding_the_Drift.png)
