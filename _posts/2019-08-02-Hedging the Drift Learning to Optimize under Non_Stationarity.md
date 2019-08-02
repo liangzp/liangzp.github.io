@@ -20,6 +20,7 @@ tags:                               #标签
         });
     </script>
 </head>
+
 # Hedging the Drift: Learning to Optimize under Non-Stationarity 
 
 *by Wang Chi Cheung, David Simchi-Levi and Ruihao Zhu*
@@ -105,7 +106,7 @@ This LEMMA can be directly derived from Theorem 2 in (Abbasi-Yadkori et al. 2011
 
 **Theorem 2** For any $t\in1\dots,T$ and any $\delta\in[0,1]$, we have with probability at least $1-\delta$
 $$
-|x^T(\hat{\theta}_t-\theta_t)|\leq L\sum_{s=1\lor(t-w)}^{t-1}\|\theta_s-\theta_{s+1}\|+\beta\|x\|_{V_{t-1}^{-1}}
+\|x^T(\hat{\theta}_t-\theta_t)\|\leq L\sum_{s=1\lor(t-w)}^{t-1}\|\theta_s-\theta_{s+1}\|+\beta\|x\|_{V_{t-1}^{-1}}
 $$
 
 
@@ -193,23 +194,25 @@ $$
 
 
 ![K-bandit with variance budget known](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Heding%20the%20Drift/Heding_the_Drift.png)
-EXP3.S:y=1.0589198165496876x-2.031075494645885
-SW_UCB:y=0.9344154836606042x-2.6797493935069974
++ EXP3.S:y=1.0589198165496876x-2.031075494645885
+
++ SW_UCB:y=0.9344154836606042x-2.6797493935069974
 
 
 
 ![K-bandit with variance budget unknown](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Heding%20the%20Drift/Heding_the_Drift_unknown_cumulative.png)
 
-BOB:y=0.9618974510609959x-1.999059722100245
-SW_UCB:y=1.56266615722359x-3.21379878505043
++ BOB:y=0.9618974510609959x-1.999059722100245
+
++ SW_UCB:y=1.56266615722359x-3.21379878505043
 
 
 ![piecewise-bandit with variance budget known](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Heding%20the%20Drift/Heding_the_Drift_piecewise_cumulative.png)
-EXP3.S:y=0.9529570403659773x-1.406305036534438
-SW_UCB:y=0.7955559909479708x-1.034963364818518
++ EXP3.S:y=0.9529570403659773x-1.406305036534438
++ SW_UCB:y=0.7955559909479708x-1.034963364818518
 
 ![piecewise-bandit with variance budget unknown](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Heding%20the%20Drift/Heding_the_Drift_piecewise_unknown_cumulative.png)
-BOB:y=1.061702735961192x-1.8792975489796089
-SW_UCB:y=1.9093382314556537x-6.44241440616039
++ BOB:y=1.061702735961192x-1.8792975489796089
++ SW_UCB:y=1.9093382314556537x-6.44241440616039
 
 ![Estimated](https://raw.githubusercontent.com/liangzp/online-learning-implementation/master/Heding_the_Drift.png)
