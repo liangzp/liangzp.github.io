@@ -191,6 +191,265 @@ $$
 $$
 
 
+```python
+# -*- coding: utf-8 -*-
+
+"""
+Bandit Agents.
+"""
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
+import numpy as np
+import numpy.matlib
+import os
+import sys
+from queue import Queue
+from scipy import optimize
+from math import sqrt,log,floor,e, ceil
+
+import warnings
+warnings.filterwarnings("ignore")
+
+
+sys.path.append(os.getcwd())
+
+from base.Agent import Agent
+
+SMALL_NUM=10e-4
+##################################################################
+
+class SW_UCB(Agent):
+    """Reproduce SW_UCB algorithm according to Heding the Drift: Learning to Optimize under Non-Stationarity by Cheung, Simchi-Levi, and Zhu"""
+
+    def __init__(self, n_arms, n_steps, vb=1.0, lambda_=0, vp=.1, w_width=0):
+        self.name='SW_UCB'
+        self.n_arms = n_arms
+        self.vb = vb
+        self.lambda_=lambda_
+        if w_width==0:
+            self.w_width=max(1,floor(n_arms**(1/3)*n_steps**(2/3)*vb**(-2/3)))
+        else:
+            self.w_width=w_width
+        self.vp=vp
+        self.A=np.eye(n_arms)
+        self.n_steps=n_steps
+        self.reset()
+        
+    def update_observation(self,observation, action, reward):
+        """
+        self.x_tmp.append(self.A[action])
+        self.y_tmp.append(reward)
+        """
+        self.x_tmp=np.insert(self.x_tmp,0, values= self.A[action], axis=0 )
+        self.y_tmp=np.insert(self.y_tmp,0, values= reward, axis=0 )
+        #assert len(self.x_tmp)==len(self.y_tmp)
+        
+        if(len(self.x_tmp)>self.w_width+1):
+            """
+            self.x_tmp=self.x_tmp[1:]
+            self.y_tmp=self.y_tmp[1:]
+            """
+            self.x_tmp=self.x_tmp[:-1]
+            self.y_tmp=self.y_tmp[:-1]
+
+    def pick_action(self,observation,t):
+        if (t+1)<=self.n_arms:
+            return [0,0], t
+        else:
+            return self.optimal_action(t)
+        
+    def optimal_action(self,t):
+        xMat=self.x_tmp[:-1].reshape(min(t,self.w_width),self.n_arms)
+        yMat=self.y_tmp[:-1].reshape(min(t,self.w_width),1)
+        xTx=np.dot(xMat.T,xMat)+SMALL_NUM*np.eye(self.n_arms)
+        V_I=np.linalg.pinv(xTx+np.eye(xTx.shape[1])*self.lambda_)
+        theta_hat=np.dot(V_I,np.dot(xMat.T,yMat))
+        A_value=[i for i in map(lambda x:np.dot(x,theta_hat)+self.vp*sqrt(2*log(2*self.n_arms*self.n_steps**2)*np.dot(x,np.dot(V_I,x.T))),np.eye(self.n_arms))]
+        return A_value, np.argmax(A_value)
+        #minimize(value,[0.5,0.5],jac=func_deriv,constraints=cons,method='SLSQP',options={'disp':True})
+        
+    """    
+    def value(self,x):
+        return self.theta_hat[0]*x[0]+self.theta_hat[1]*x[1]+sqrt(self.V_I[0][0]*x**2+self.V_I[0][1]*x+self.V_I[1][0]*x+self.V_I[1][1]**2)*(self.vp*sqrt(self.n_arm*log((1+self.w_width*1**2)/)))
+    """
+    
+    def reset(self):
+        self.x_tmp=np.zeros((1,self.n_arms))
+        self.y_tmp=np.zeros((1,1))
+        
+
+####################################################################     
+class EXP3S(Agent):
+    """Reproduce EXP3.S algorithm according to Optimal Exploration-Exploitation in a Multi-Armed-Bandit Problem with Non-Stationary Rewards by Omar Besbes, Yoonatan Gur and Assaf Zeevi
+    https://poseidon01.ssrn.com/delivery.php?ID=161070001067086064095125083024014123120047030012065075094107124097002030100007070120049062054045104022006125124011090012114100123011053034003084088007094106107005010021050031124076090094107085024088098100106119126001121099124072122003097076088095106082&EXT=pdf
+    """
+    def __init__(self, n_arms, n_steps, vb, vp):
+        self.name='EXP3.S'
+        self.n_arms = n_arms
+        #self.vb = vb
+        self.alpha=1/n_steps
+        self.gamma=min(1,(4*vb*n_arms*log(n_arms*n_steps)/((e-1)**2*n_steps))**(1/3))
+        #self.vp=vp
+        self.n_steps=n_steps
+        self.print_log()
+        self.reset()
+    
+    def update_observation(self, observation, action, reward):
+        x=np.zeros(self.n_arms)
+        x[action]=reward/self.p[action]
+        self.w=self.w*np.exp(self.gamma*x/self.n_arms)+e*self.alpha/self.n_arms*np.sum(self.w)
+        self.w=self.w/np.sum(self.w)
+        
+        
+    def pick_action(self, observation, t):
+        self.p=(1-self.gamma)*self.w/np.sum(self.w)+self.gamma/self.n_arms
+            
+        return self.p, np.random.choice(np.arange(0,self.n_arms),p=self.p)
+        
+    def reset(self):
+        self.w=np.ones(self.n_arms)
+        
+    def print_log(self):
+        print('*'*30)
+        print('Agent:{agent}'.format(agent=self.name))
+        print('Params:\nGamma<----{gamma}      Alpha<----{alpha}'.format(gamma=self.gamma, alpha=self.alpha))
+        
+        
+#####################################################################
+class BOB(Agent):
+    """Reproduce BOB algorithm according to Heding the Drift: Learning to Optimize under Non-Stationarity by Cheung, Simchi-Levi, and Zhu"""
+
+    def __init__(self, n_arms, n_steps, lambda_, vp):
+        self.name='BOB'
+        self.n_arms = n_arms
+        self.n_steps=n_steps
+        self.H=floor(n_arms*n_steps**(1/2))
+        self.delta=ceil(log(self.H))
+        self.gamma=min(1,sqrt((self.delta+1)*log(self.delta+1)/((e-1)*ceil(n_steps/self.H))))
+        self.s=np.ones(self.delta+1)
+        self.vp=vp
+        self.lambda_=lambda_
+        self.i=0
+        self.reset()
+        
+    def update_observation(self,observation, action, reward):
+        self.rewards+=reward[0]
+        self.SW_UCB.update_observation(observation, action, reward)
+            
+    def pick_action(self,observation,t):
+        if t<=min(self.i*self.H,self.n_steps):
+            A_value, action=self.SW_UCB.pick_action(observation,self.SW_UCB_t)
+        else:
+            self.reset()
+            A_value, action=self.SW_UCB.pick_action(observation,self.SW_UCB_t)
+        self.SW_UCB_t=1+self.SW_UCB_t
+        return A_value, action
+    
+    def reset(self):
+        if self.i>0:
+            self.s[self.j]=self.s[self.j]*np.exp(self.gamma/((self.delta+1)*self.p[self.j])*(1/2+self.rewards/(2*self.H+4*self.vp*sqrt(self.H*log(self.n_steps/(log(self.H)))))))
+        self.p=(1-self.gamma)*self.s/np.sum(self.s)+self.gamma/(self.delta+1)
+        self.j=np.random.choice(np.arange(0,self.delta+1),p=self.p)
+        self.SW_UCB=SW_UCB(self.n_arms, self.n_steps, lambda_=self.lambda_, vp=self.vp, w_width=floor(self.H**(self.j/self.delta)))
+        self.SW_UCB_t=0
+        self.rewards=0
+        self.i=self.i+1
+```
+
+```python
+# -*- coding: utf-8 -*-
+
+"""
+Based Agent.
+"""
+from __future__ import division
+from __future__ import print_function
+
+import numpy as np
+import pandas as pd
+###############################################
+
+class BanditExperiment(object):
+    """Base class for all experiment."""
+    
+    def __init__(self, name, environment, agent, n_seeds, n_steps, record=True, save_path='../temp/', echo=10000):
+        """Initial the environment."""
+        self.name=name
+        self.environment=environment
+        self.agent=agent
+        self.n_steps=n_steps
+        self.t=0
+        self.record=record
+        self.save_path=save_path
+        self.n_seeds=n_seeds
+        self.reset()
+        self.echo=echo
+        self.eposide=1
+            
+    def run_per_step(self,t):
+        """Sup function under Function Run to run experiment step by step"""
+        params, observation = self.environment.get_observation()
+        A_value, action = self.agent.pick_action(observation,t)
+        optimal_reward = self.environment.get_optimal_reward()
+        expected_reward = self.environment.get_expected_reward(action)
+        reward = self.environment.get_stochastic_reward(action)
+        
+        self.agent.update_observation(observation, action, reward)
+        
+        instant_regret = optimal_reward-expected_reward
+        self.cum_regret += instant_regret
+        
+        self.environment.advance(t)
+        
+        data_dict = {'t':(t+1),
+                     #'true_theta':self.environment.get_params,
+                     'action': action,
+                     'instant_regret':instant_regret[0],
+                     'cm_regret':self.cum_regret[0],
+                     'id':(self.eposide+1),
+                     'agent':self.agent.name
+                     }
+        """
+        if (t+1) %self.echo==0:
+            print('t:',t)
+            print('etimatied:',A_value)
+            print('true:',params)
+        """ 
+        """
+        for i,value in enumerate(np.array(A_value).flatten()):
+            data_dict["estimated_bandit_"+str(i)]=value
+         
+        for i,value in enumerate(np.array(params).flatten()):
+            data_dict["true_bandit_"+str(i)]=value
+        """
+        
+        data_dict["estimated_bandits"]=np.array(A_value).flatten()
+        data_dict["true_bandits"]=np.array(params).flatten()
+
+        self.results.append(data_dict)
+ 
+    def log(self,eposide):
+        """Save experiment results in drive."""
+        pd.DataFrame(self.results).to_csv("{save_path}exp={name}&num={num}&agent={agent}.csv".format(save_path=self.save_path,name=self.name,num=eposide,agent=self.agent.name),index=False)
+    
+    def run(self):
+        """Run the experiment for n_steps and collect data."""
+        for self.eposide in range(self.n_seeds):
+            print("In eposide:{eposide}".format(eposide=self.eposide))
+            for t in range(self.n_steps):
+                self.run_per_step(t)
+            if self.record:
+                self.log(self.eposide)
+            self.reset()
+           
+    def reset(self):
+        """Restart the environment."""
+        self.results=[]
+        self.cum_regret=0
+        self.agent.reset()
+```
 
 ![K-bandit with variance budget known](https://raw.githubusercontent.com/liangzp/liangzp.github.io/master/img/Heding%20the%20Drift/Heding_the_Drift.png)
 + EXP3.S:y=1.0589198165496876x-2.031075494645885
