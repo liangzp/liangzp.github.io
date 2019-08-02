@@ -1,7 +1,7 @@
 ---
 layout:     post                    # 使用的布局（不需要改）
-title:      Hedging the Drift: Learning to Optimize under Non-Stationarity             # 标题 
-date:       2019-08-01            # 时间
+title:      Hedging the Drift: Learning to Optimize under Non-Stationarity            # 标题 
+date:       2019-08-02            # 时间
 author:     BY Zhipeng Liang                    # 作者
 header-img: img/what-is-reinforcement-learning-the-complete-guide.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
@@ -20,7 +20,7 @@ tags:                               #标签
         });
     </script>
 </head>
-### Hedging the Drift: Learning to Optimize under Non-Stationarity 
+# Hedging the Drift: Learning to Optimize under Non-Stationarity 
 
 *by Wang Chi Cheung, David Simchi-Levi and Ruihao Zhu*
 
