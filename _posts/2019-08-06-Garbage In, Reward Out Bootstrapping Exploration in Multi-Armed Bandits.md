@@ -7,7 +7,7 @@ author:     BY Zhipeng Liang                    # 作者
 header-img: img/what-is-reinforcement-learning-the-complete-guide.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - Python -Online Learning
+    -Online Learning
 ---
 
 <head>
@@ -23,9 +23,9 @@ tags:                               #标签
 </head>
 
 
-### Garbage In, Reward Out: Bootstrapping Exploration in Multi-Armed Bandits
+## Garbage In, Reward Out: Bootstrapping Exploration in Multi-Armed Bandits
 
-*This blog is attached with [Slides](https://liangzp.github.io/Online-Learning/GIRO.html)*
+*This blog is attached with [My Slides](https://liangzp.github.io/Online-Learning/GIRO.html)*
 
 Arguably, the most used and stuied exploration straties in multi-armed and contextual bandits are the $\epsilon$-greedy policy, the optimism in the fact of uncertainty (e.g. UCB) and Thompson sampling. $\epsilon$-greedy policy is easy to implement but also statistically suboptimal. UCB is computationally efficient in multi-armed and linear bandits but may become suboptimal when reward function is non-linear. Thompson Sampling demonstrates excellent performance and optimal regret bound, but sampling from posterior in general setting is always costly. 
 

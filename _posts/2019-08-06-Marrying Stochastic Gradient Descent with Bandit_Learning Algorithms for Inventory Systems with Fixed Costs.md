@@ -1,13 +1,13 @@
 ---
 layout:     post                    # 使用的布局（不需要改）
-title:      Learning Algorithms for Inventory Systems with Fixed Costs             # 标题 
+title:      Marrying Stochastic Gradient Descent with Bandit_Learning Algorithms for Inventory Systems with Fixed Costs             # 标题 
 subtitle:   HKUST Summer Research Task 3 #副标题
 date:       2019-07-31            # 时间
 author:     BY Zhipeng Liang                    # 作者
 header-img: img/what-is-reinforcement-learning-the-complete-guide.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - Python
+    -Online Learning
 ---
 
 <head>
@@ -23,7 +23,7 @@ tags:                               #标签
 </head>
 
 
-## Learning Algorithms for Inventory Systems with Fixed Costs
+## Marrying Stochastic Gradient Descent with Bandit_Learning Algorithms for Inventory Systems with Fixed Costs
 
 [Paper Link](https://poseidon01.ssrn.com/delivery.php?ID=848111097086113100109080089083120096032042072006036091011094029091113095122120090065023097018011121012001114085100031029005083025009038044078119027071074107077094027038050071029093111098016004023107105079093024078109068097011066121122001031068113104112&EXT=pdf)
 
@@ -57,6 +57,7 @@ Dynamics:
    $$
    C_t(x_t,q_t,d_t)=K\mathbb{1}_{q_t>0}+cq_t+h(x_t+q_t-d_t)^++p(x_t+q_t-d_t)^-
    $$
+
 
 
 
