@@ -1,12 +1,12 @@
 ---
 layout:     post                    # 使用的布局（不需要改）
 title:      Summary of Online Learning             # 标题 
-date:       2019-08-06            # 时间
+date:       2019-08-16            # 时间
 author:     BY Zhipeng Liang                    # 作者
 header-img: img/what-is-reinforcement-learning-the-complete-guide.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - Python
+    - Online Learning
 ---
 
 <head>
