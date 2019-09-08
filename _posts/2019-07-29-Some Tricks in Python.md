@@ -6,7 +6,7 @@ author:     BY Zhipeng Liang                    # 作者
 header-img: img/what-is-reinforcement-learning-the-complete-guide.jpg    #这篇文章标题背景图片
 catalog: true                       # 是否归档
 tags:                               #标签
-    - 在线学习
+    - Python
 ---
 
 <head>
@@ -24,3 +24,4 @@ tags:                               #标签
 ```
 runfile('E:/大三下学期/Summer Research/ts_tutorial/reproduce_figures.py',args='--figure 3 --run_frac=0.001', wdir='E:/大三下学期/Summer Research/ts_tutorial')
 ```
+

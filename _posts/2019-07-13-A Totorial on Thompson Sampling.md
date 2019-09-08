@@ -25,6 +25,8 @@ tags:                               #标签
 
 ## A Tutorial on Thompson Sampling
 
+*This blog is attached with [Slides of part 1](https://liangzp.github.io/Online-Learning/TS_Tutorial.html) and [Slides of part 2](https://liangzp.github.io/Online-Learning/TS_Tutorial2.html)*
+
 Core Functions:
 
 ```python
