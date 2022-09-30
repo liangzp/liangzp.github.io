@@ -25,3 +25,6 @@
 [Hong Kong University of Science and Technology](https://hkust.edu.hk/) \
 Hong Kong, China, \
 E-mail: zliangao2[AT]mails[DOT]connect[DOT]ust[DOT]hk
+
+## Photography
+<img src="ice.jpg" width="50%">
