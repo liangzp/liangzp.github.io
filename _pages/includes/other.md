@@ -27,4 +27,4 @@ Hong Kong, China, \
 E-mail: zliangao2[AT]mails[DOT]connect[DOT]ust[DOT]hk
 
 ## Photography
-![ICEMOUNTAIN](ice.jpg)
+<img src="https://github.com/liangzp/liangzp.github.io/raw/main/_pages/includes/ice.jpg" width="100%">
