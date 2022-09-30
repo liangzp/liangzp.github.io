@@ -27,4 +27,4 @@ Hong Kong, China, \
 E-mail: zliangao2[AT]mails[DOT]connect[DOT]ust[DOT]hk
 
 ## Photography
-<img src="ice.jpg" width="50%">
+![ICEMOUNTAIN](ice.jpg)

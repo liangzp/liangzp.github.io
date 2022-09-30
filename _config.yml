@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Zhipeng Liang (梁智鹏)"
+title                    : "Zhipeng Liang"
 description              : "Ph.D. student at Hong Kong University of Science and Technology. Focusing on Reinforcement Learning and Bandits Algorithms. "
 repository               : "liangzp/liangzp.github.io"
 google_scholar_stats_use_cdn : true
