@@ -1,6 +1,6 @@
 # 👨🏽‍🤝‍👨🏼 Collaborators
-- [Qianchuan Zhao](http://cfins.au.tsinghua.edu.cn/personalhg/zhaoqc/) -  Professor, Department of Automation, Tsinghua University. 
-- [Li Xia](http://bus.sysu.edu.cn/en/teacher/XiaLi) - Professor, Business School, Sun Yat-Sen University
-- [Zhengyuan Zhou](https://www.stern.nyu.edu/faculty/bio/zhengyuan-zhou) - Assistant Professor, Stern School of Business, New York University
-- [Gao Huang](http://www.gaohuang.net/) - Assistant Professor, Department of Automation, Tsinghua University
-- [Chongjie Zhang](http://people.iiis.tsinghua.edu.cn/~zhang/) - Assistant Professor, Institute for Interdisciplinary Information Sciences (IIIS), Tsinghua University
+- [Yuxuan Han] -  PhD Student, Department of Mathematics, Hong Kong University of Science and Technology. 
+- [Xiaoteng Ma](https://xtma.github.io) -  Department of Automation, Tsinghua University.
+- [Zhicong Liang] -  PhD Student, Department of Mathematics, Hong Kong University of Science and Technology. 
+- [Yuan Yao](https://www.math.hkust.edu.hk/people/faculty/profile/yuany/) -  Professor, Department of Mathematics, Hong Kong University of Science and Technology.
+- [Yang Wang](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=yang-wang-yangwang/) -  Chair Professor, Department of Mathematics and IEDA, Hong Kong University of Science and Technology.

@@ -1,26 +1,27 @@
 # 🥇 Honors and Awards
-- *2021.10* Tsinghua Comprehensive Scholarship
-- *2015.10* Xi'an Jiaotong University Outstanding Student (Undergraduate) (Top 10)
-- *2015.10* National Scholarship (Undergraduate) (Top 1%)
-- *2014.10* National Scholarship (Undergraduate) (Top 1%)
+- *2022.05* Redbird Academic Excellent Scholarship (Postgraduate)
+- *2020.10* Redbird Scholarship (Postgraduate) 
+- *2018.10* Samsung Scholarship (Undergraduate) (Top 1%)
+- *2017.11* First Prize in Chinese Mathematics Modeling (Undergraduate) (Top 0.5%)
 
 
 # 📖 Educations
-- *2017.09 - present*, Ph.D., Department of Automation, Tsinghua University.
-- *2013.09 - 2017.06*, Bachelor, Department of Automation, Xi'an Jiaotong Univeristy.
+- *2020.09 - present*, Ph.D., Department of Industrial Engineering and Decision Analytics, Hong Kong University of Science and Technology.
+- *2017.09 - 2020.06*, Bachelor, Mathematics and Applied Mathematics, Sun Yat-sen Univeristy.
+- *2016.09 - 2020.06*, Bachelor (Rank 1), Management Science, Sun Yat-sen Univeristy.
 
 
 # 💻 Internships
-- *2018.09 - 2018.11*, [SenseTime](https://www.sensetime.com/), Beijing.
-- *2017.07 - 2017.08*, [Institute of Automation, CAS](https://ia.cas.cn/), Beijing.
+- *2022.08 - present*, [Citadel Securties](https://www.citadelsecurities.com/), Hong Kong.
+- *2022.03 - 2022.07*, [Tencent AI Lab](https://ai.tencent.com/ailab/zh/index/), Shenzhen.
+- *2020.07 - 2020.10*, [NetEase Games](http://www.neteasegames.com/), Guangzhou.
 
 
 ## 📞 Contact
 
-*Xiaoteng Ma*
+*Zhipeng Liang*
 
-[Department of Automation](https://www.au.tsinghua.edu.cn/) \
-[Tsinghua University](https://www.tsinghua.edu.cn/en/) \
-FIT Building 3-624 \
-Beijing, China, 100084 \
-E-mail: ma-xt17[AT]mails[DOT]tsinghua[DOT]edu[DOT]cn
+[Department of Industrial Engineering and Decision Analytics](https://ieda.ust.hk/eng/index.php/) \
+[Hong Kong University of Science and Technology](https://hkust.edu.hk/) \
+Hong Kong, China, \
+E-mail: zliangao2[AT]mails[DOT]connect[DOT]ust[DOT]hk
