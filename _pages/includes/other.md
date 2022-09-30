@@ -6,7 +6,7 @@
 
 
 # 📖 Educations
-- *2020.09 - present*, Ph.D., Department of Industrial Engineering and Decision Analytics, Hong Kong University of Science and Technology.
+- *2020.09 - present*, Ph.D. Student, Department of Industrial Engineering and Decision Analytics, Hong Kong University of Science and Technology.
 - *2017.09 - 2020.06*, Bachelor, Mathematics and Applied Mathematics, Sun Yat-sen Univeristy.
 - *2016.09 - 2020.06*, Bachelor (Rank 1), Management Science, Sun Yat-sen Univeristy.
 

@@ -6,9 +6,9 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Xiaoteng Ma (马骁腾)"
-description              : "Ph.D. student at Tsinghua University. Focusing on Reinforcement Learning. "
-repository               : "xtma/xtma.github.io"
+title                    : "Zhipeng Liang (梁智鹏)"
+description              : "Ph.D. student at Hong Kong University of Science and Technology. Focusing on Reinforcement Learning and Bandits Algorithms. "
+repository               : "liangzp/liangzp.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -21,15 +21,15 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Xiaoteng"
+  name             : "Zhipeng"
   avatar           : "images/android-chrome-512x512.png"
-  bio              : "Tsinghua University"
-  location         : "Beijing, China"
+  bio              : "Hong Kong University of Science and Technology"
+  location         : "Hong Kong, China"
   employer         :
   pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=CeDFnNMAAAAJ"
-  email            : "ma-xt17[AT]mails[DOT]tsinghua[DOT]edu[DOT]cn"
-  researchgate     : "https://www.researchgate.net/profile/Xiaoteng-Ma-4"
+  googlescholar    : 
+  email            : "zliangao[AT]connect[DOT]ust[DOT]hk"
+  researchgate     : 
   uri              :
   bitbucket        :
   codepen          :
@@ -37,15 +37,15 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "xtma"
+  github           : "liangzp"
   google_plus      :
   keybase          :
   instagram        :
   impactstory      : # e.g., "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         : # e.g., "linkedin username"
-  dblp             : "https://dblp.org/pid/238/3249.html"
-  orcid            : "https://orcid.org/0000-0002-7250-6268"
+  dblp             : 
+  orcid            : 
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
@@ -57,7 +57,7 @@ author:
   xing             :
   youtube          :
   wikipedia        :
-  zhihu            : "xiaoteng_ma"
+  zhihu            : 
 
 
 # Reading Files
