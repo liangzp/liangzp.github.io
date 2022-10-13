@@ -1,6 +1,6 @@
 # 👨🏽‍🤝‍👨🏼 Collaborators
-- Yuxuan Han -  PhD Student, Department of Mathematics, Hong Kong University of Science and Technology. 
-- Zhicong Liang -  PhD Student, Department of Mathematics, Hong Kong University of Science and Technology.
+- Yuxuan Han -  PhD Candidate, Department of Mathematics, Hong Kong University of Science and Technology. 
+- Zhicong Liang -  PhD Candidate, Department of Mathematics, Hong Kong University of Science and Technology.
 - [Bingzhe Wu](http://wbz-ljm.cn/wbz/) -  Senior Researcher, Tencent AI Lab.
 - [Zongbo Han](https://zongbo-han.github.io/) - PhD Candidate, Tianjin University
 - [Xiaoteng Ma](https://xtma.github.io) -  PhD Candidate, Department of Automation, Tsinghua University.
