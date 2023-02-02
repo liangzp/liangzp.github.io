@@ -2,14 +2,14 @@
  * @Author: Louis Liang louis97.liang@gmail.com
  * @Date: 2022-09-30 00:01:44
  * @LastEditors: Louis Liang louis97.liang@gmail.com
- * @LastEditTime: 2023-01-27 21:51:26
+ * @LastEditTime: 2023-02-01 23:45:49
  * @FilePath: /zpliang.github.io/_pages/includes/pub.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 # 📝 Publications 
 
 ## Preprint
-- [Single-Trajectory Distributionally Robust Reinforcement Learning](). **Zhipeng Liang**\*, Xiaoteng Ma\*, Jose Blanchet, Jiheng Zhang, Zhengyuan Zhou
+- [Single-Trajectory Distributionally Robust Reinforcement Learning](https://arxiv.org/pdf/2301.11721.pdf). **Zhipeng Liang**\*, Xiaoteng Ma\*, Jose Blanchet, Jiheng Zhang, Zhengyuan Zhou
 - [Distributionally Robust Offline Reinforcement Learning with Linear Function Approximation](https://arxiv.org/pdf/2209.06620.pdf). Xiaoteng Ma\*, **Zhipeng Liang**\*, Jose Blanchet, Mingwen Liu, Li Xia, Jiheng Zhang, Qianchuan Zhao, Zhengyuan Zhou
 
 
