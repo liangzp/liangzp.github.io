@@ -9,11 +9,11 @@
 # 📝 Publications 
 
 ## Preprint
-- [Single-Trajectory Distributionally Robust Reinforcement Learning](https://arxiv.org/pdf/2301.11721.pdf). **Zhipeng Liang**\*, Xiaoteng Ma\*, Jose Blanchet, Jiheng Zhang, Zhengyuan Zhou
 - [Distributionally Robust Offline Reinforcement Learning with Linear Function Approximation](https://arxiv.org/pdf/2209.06620.pdf). **Zhipeng Liang**\*, Xiaoteng Ma\*, Jose Blanchet, Mingwen Liu, Li Xia, Jiheng Zhang, Qianchuan Zhao, Zhengyuan Zhou
 
+## Publication
+- [Single-Trajectory Distributionally Robust Reinforcement Learning](https://arxiv.org/pdf/2301.11721.pdf). **Zhipeng Liang**\*, Xiaoteng Ma\*, Jose Blanchet, Jiheng Zhang, Zhengyuan Zhou, *International Conference on Machine Learning* (**ICML**), 2024.
 
-## Conference Paper
 - [Privacy Matters: Vertical Federated Linear Contextual Bandits for Privacy Protected Recommendation](https://openreview.net/pdf?id=4r1pEOlaDyz). Zeyu Cao\*, **Zhipeng Liang**\*, Shu Zhang, Hangyu Li, Ouyang Wen, Yu Rong, Peilin Zhao, Bingzhe Wu. *SIGKDD Conference on Knowledge Discovery and Data Mining* (**KDD**), 2023.
 
 - [UMIX: Improving Importance Weighting for Subpopulation Shift via Uncertainty-Aware Mixup](https://arxiv.org/pdf/2209.08928.pdf). Zongbo Han\*, **Zhipeng Liang**\*, Fan Yang\*, Liu Liu, Lanqing Li, Yatao Bian, Peilin Zhao, Bingzhe Wu, Changqing Zhang, Jianhua Yao. *Advances in Neural Information
